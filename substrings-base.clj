@@ -1,10 +1,12 @@
+(println "pls type smth")
 (def input-str (str (read)))
+
+(println "pls input n")
+(def n (int (read)))
 
 (def st
   (distinct
     (clojure.string/split input-str #"")))
-
-(def st-len (count st))
 
 (defn filter-st [x]
   (filter
@@ -17,11 +19,6 @@
        (str x el))
      (filter-st (last x))))
 
-; (loop [i 0]
-;   (when (< i st-len)
-;     (println (gen-strs (nth st i)))
-;     (recur (inc i))))
-
 (defn gen-seq-for-str [x]
   (flatten
     (map
@@ -29,4 +26,10 @@
         (gen-strs el))
       x)))
 
-(println (gen-seq-for-str st))
+(defn gen-seq-req [sq i]
+  (if (< i n)
+    ((def cur-seq (gen-seq-for-str sq))
+     (println cur-seq)
+     (gen-seq-req cur-seq (inc i)))))
+
+(gen-seq-req st 1)
