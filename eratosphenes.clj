@@ -12,7 +12,7 @@
 (defn eratosphenes [candidates]
   (if (not (empty? candidates))
     ((def curPrime (first candidates))
-     (println curPrime)
-     (eratosphenes (sieve candidates curPrime)))))
+      (println curPrime)
+      (eratosphenes (sieve candidates curPrime)))))
 
 (eratosphenes nums)
