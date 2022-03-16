@@ -13,6 +13,6 @@
   (if (not (empty? candidates))
     (let [curPrime (first candidates)]
       (println curPrime)
-      (eratosphenes (sieve candidates curPrime)))))
+      (recur (sieve candidates curPrime)))))
 
 (eratosphenes nums)

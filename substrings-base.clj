@@ -30,6 +30,6 @@
   (if (< i n)
     (let [cur-seq (gen-seq-for-str sq)]
       (println cur-seq)
-      (gen-seq-req cur-seq (inc i)))))
+      (recur cur-seq (inc i)))))
 
 (gen-seq-req st 1)
