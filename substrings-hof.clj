@@ -1,12 +1,12 @@
 (println "pls type smth")
-(def input-str (str (read)))
+(def alphabet (str (read)))
 
 (println "pls input n")
 (def n (int (read)))
 
 (def st
   (distinct
-    (clojure.string/split input-str #"")))
+    (clojure.string/split alphabet #"")))
 
 (defn filter-st [x]
   (filter
