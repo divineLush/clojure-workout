@@ -11,7 +11,7 @@
 
 (defn eratosphenes [candidates]
   (if (not (empty? candidates))
-    ((def curPrime (first candidates))
+    (let [curPrime (first candidates)]
       (println curPrime)
       (eratosphenes (sieve candidates curPrime)))))
 

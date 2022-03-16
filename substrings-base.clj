@@ -28,7 +28,7 @@
 
 (defn gen-seq-req [sq i]
   (if (< i n)
-    ((def cur-seq (gen-seq-for-str sq))
+    (let [cur-seq (gen-seq-for-str sq)]
       (println cur-seq)
       (gen-seq-req cur-seq (inc i)))))
 
