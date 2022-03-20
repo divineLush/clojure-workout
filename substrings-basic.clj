@@ -12,26 +12,26 @@
     s
     (conj s (str x y))))
 
-(defn build-seq
-  ([msg] (build-seq msg '[] alphabet))
-  ([msg cur-seq alph-seq]
+(defn build-coll
+  ([msg] (build-coll msg '[] alphabet))
+  ([msg coll alph-seq]
     (if (empty? alph-seq)
-      cur-seq
-      (recur msg (smart-conj cur-seq msg (first alph-seq)) (rest alph-seq)))))
+      coll
+      (recur msg (smart-conj coll msg (first alph-seq)) (rest alph-seq)))))
 
-(defn concat-seqs
-  ([inp-seq] (concat-seqs inp-seq '[]))
-  ([inp-seq cur-seq]
-    (if (empty? inp-seq)
-      cur-seq
-      (recur (rest inp-seq) (concat cur-seq (build-seq (first inp-seq)))))))
+(defn concat-colls
+  ([inp-coll] (concat-colls inp-coll '[]))
+  ([inp-coll coll]
+    (if (empty? inp-coll)
+      coll
+      (recur (rest inp-coll) (concat coll (build-coll (first inp-coll)))))))
 
-(defn gen-seq
-  ([] (gen-seq n alphabet))
-  ([i cur-seq]
+(defn gen-coll
+  ([] (gen-coll n alphabet))
+  ([i coll]
     (if (= i 1)
-      cur-seq
-      (recur (dec i) (concat-seqs cur-seq)))))
+      coll
+      (recur (dec i) (concat-colls coll)))))
 
 (if (> n 1)
-  (println (gen-seq)))
+  (println (gen-coll)))
