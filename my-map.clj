@@ -1,8 +1,7 @@
-(defn my-map
-  ([f inp-coll] (my-map f inp-coll '[]))
-  ([f inp-coll coll]
-    (if (empty? inp-coll)
-      coll
-      (recur f (rest inp-coll) (conj coll (f (first inp-coll)))))))
+(defn my-map [f coll]
+  (reduce
+    (fn [a b] (conj a (f b)))
+    []
+    coll))
 
 (println (my-map (fn [x] (* x 2)) '[1 2 3 4 5]))
