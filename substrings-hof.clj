@@ -19,17 +19,18 @@
       (str x el))
     (filter-st (last x))))
 
+(defn flatten-custom [coll]
+  (reduce
+    (fn [a b]
+      (concat a b))
+    []
+    coll))
+
 (defn gen-seq-for-str [x]
-  (flatten
+  (flatten-custom
     (map
       (fn [el]
         (gen-strs el))
       x)))
 
-(defn gen-seq-req [sq i]
-  (if (< i n)
-    (let [cur-seq (gen-seq-for-str sq)]
-      (println cur-seq)
-      (recur cur-seq (inc i)))))
-
-(gen-seq-req st 1)
+(println (nth (iterate gen-seq-for-str st) (dec n)))
