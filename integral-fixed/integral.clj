@@ -21,7 +21,7 @@
   ([f val i] (def new-val (+ (f (* h i)) val))
               (lazy-seq (cons new-val (partial-solutions f new-val (inc i))))))
 
-(defn eval-integral-partial1 [f]
+(defn eval-integral-partial [f]
   (let [ev (partial-solutions f)]
     (fn [x]
       (if (integer? (int (/ x h)))
