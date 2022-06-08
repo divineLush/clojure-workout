@@ -28,5 +28,5 @@
 
 (println '><><><><><><><><><><><)
 
-(println (time (res 2.6)))
+(println (time (res 2.6012321)))
 (println (real-res 2.6))

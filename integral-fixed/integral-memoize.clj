@@ -46,20 +46,20 @@
 
 (println '><><><><><><><><><><><)
 
-(println (time (mem-res 2.6)))
+(println (time (mem-res 2.6012312)))
 (println (time (slow-res 2.6)))
 
-(println '><><><><><><><><><><><)
+; (println '><><><><><><><><><><><)
 
-(println (mem-res 3.3))
-(println (real-res 3.3))
+; (println (mem-res 3.3))
+; (println (real-res 3.3))
 
-(println '><><><><><><><><><><><)
+; (println '><><><><><><><><><><><)
 
-(println (mem-res 2.1))
-(println (real-res 2.1))
+; (println (mem-res 2.1))
+; (println (real-res 2.1))
 
-(println '><><><><><><><><><><><)
+; (println '><><><><><><><><><><><)
 
-(println (mem-res 1.6))
-(println (real-res 1.6))
+; (println (mem-res 1.6))
+; (println (real-res 1.6))
