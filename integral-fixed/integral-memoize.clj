@@ -17,21 +17,7 @@
 
 (defn test-func [x] (Thread/sleep 1) (* x x))
 (defn real-res [x] (float (/ (* x x x) 3)))
-
 (def mem-res (calc-integral test-func))
-
-(println (mem-res 2))
-(println (real-res 2))
-
-(println '><><><><><><><><><><><)
-
-(println (mem-res 3))
-(println (real-res 3))
-
-(println '><><><><><><><><><><><)
-
-(println (mem-res 4))
-(println (real-res 4))
 
 
 (def calc-sum-slow
@@ -46,13 +32,34 @@
     (let [n (int (/ x step))]
       (* step (+ (calc-sum-slow n f) (/ (f x) 2))))))
 
-(println '><><><><><><><><><><><)
 
 (println 'memoized)
-(time (mem-res 2))
-(time (mem-res 3))
-
+(println (time (mem-res 2)))
 (println 'slow)
 (def slow-res (calc-integral-slow test-func))
-(time (slow-res 2))
-(time (slow-res 3))
+(println (time (slow-res 2)))
+
+(println '><><><><><><><><><><><)
+
+(println (time (mem-res 2.3)))
+(println (time (slow-res 2.3)))
+
+(println '><><><><><><><><><><><)
+
+(println (time (mem-res 2.6)))
+(println (time (slow-res 2.6)))
+
+(println '><><><><><><><><><><><)
+
+(println (mem-res 3.3))
+(println (real-res 3.3))
+
+(println '><><><><><><><><><><><)
+
+(println (mem-res 2.1))
+(println (real-res 2.1))
+
+(println '><><><><><><><><><><><)
+
+(println (mem-res 1.6))
+(println (real-res 1.6))
